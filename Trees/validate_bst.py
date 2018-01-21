@@ -28,13 +28,13 @@ class Solution(object):
              0      6
 
         Review execution:
-        | iteration | Node Value | maxleft | maxright|
+        | iteration | Node Value | maxleft | maxright |
            iter 1:        5         None       None
            iter 2:        1           5        None
            iter 3:        0           1        None
            iter 4:        6           5          1
 
-        -> return False
+        >>> False
 
         at node 6 the maxleft = 5 
         and maxright = 1
