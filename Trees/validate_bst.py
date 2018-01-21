@@ -34,7 +34,7 @@ class Solution(object):
            iter 3:        0           1        None
            iter 4:        6           5          1
 
-        >>> False
+        -> return False
 
         at node 6 the maxleft = 5 
         and maxright = 1
