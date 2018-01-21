@@ -13,7 +13,7 @@ class Solution(object):
         """
         return self.dfs(root, None, None)
     
-    def dfs(self, node, minleft, maxright):
+    def dfs(self, node, maxleft, maxright):
         """
         It's good to note the idea behind this solution
         ----
@@ -22,18 +22,29 @@ class Solution(object):
         if the tree is valid or not
 
                     5
-            1           7
-                6
+                 /     \
+                1        7
+              /    \
+             0      6
 
-        at node 6 the maxright = 5 
-        and minleft = 1
+        Review execution:
+        | iteration | Node Value | maxleft | maxright|
+           iter 1:        5         None       None
+           iter 2:        1           5        None
+           iter 3:        0           1        None
+           iter 4:        6           5          1
+
+        -> return False
+
+        at node 6 the maxleft = 5 
+        and maxright = 1
         6 is greater than 5 so this evaluates to False
         """
         if not node:
             return True
-        if maxleft is not None and node.val >= minleft:
+        if maxleft is not None and node.val >= maxleft:
             return False
         if maxright is not None and node.val <= maxright:
             return False
         return self.dfs(node.left, node.val, maxright) and \
-    self.dfs(node.right, minleft, node.val)
+    self.dfs(node.right, maxleft, node.val)
