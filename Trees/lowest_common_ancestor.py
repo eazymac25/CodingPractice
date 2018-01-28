@@ -51,3 +51,19 @@ class Solution(object):
         elif root.val < target.val:
             return self.dfs(root.right, target, path=path)
         return self.dfs(root.left, target, path=path)
+
+
+    def simpler_lca(self, root, p, q):
+        """
+        This option is iterative and much simpler
+        Just keep going through the nodes until 
+        the vals of p and q are on opposite sides of the parent
+        """
+        while root:
+            if max(p.val, q.val) < root.val:
+                root = root.left
+            elif min(p.val, q.val) > root.val:
+                root = root.right
+            else:
+                return root
+        return root
