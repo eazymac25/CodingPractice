@@ -44,7 +44,7 @@ class Solution(object):
                         combos[tuple(temp)] = 1
         return result
 
-    def threeSumAcceptet(self, nums):
+    def threeSumAccepted(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
