@@ -30,12 +30,25 @@ def recur(s, curr, results=[]):
 # add back the removed characters and continue forward
 
 def find_in_str(s, target):
+	"""
+	a wrapper that turns the target string into a hashset<char>
+	"""
 	ts = set()
 	for ch in target:
 		ts.add(ch)
 	return find_start(s, ts)
 
 def find_start(s, ts):
+	"""
+	find start loops through each index of s 
+	and checks the target set for the current character
+	Args
+		s (str): a string to search for any permutation of chars in ts
+		ts (set<char>): a set of the target characters
+	Returns
+		int: the index where the permutation begins
+		else -1
+	"""
 	if not s or not ts:
 		return -1
 	offset = len(ts)
