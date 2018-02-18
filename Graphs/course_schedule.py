@@ -30,13 +30,15 @@ then it is impossible to take all the classes
 
 The topological sort algo does the following:
 
-int[][] graph = new int[numCourses][numCourses]
+int[][] graph = new int[numCourses][]
 int[] visited = new int[numCourses]
 
 for each i in prerequisits.length
-	graph[i].append(preqrequisites[i][1])
+	idx = prerequisites[i][0]
+	req = prerequisites[i][1]
+	graph[idx].add(req)
 
-function dfs_cycle(node n)
+public bool dfs_cycle(node n)
 	if temporary mark
 		return false
 	if permanent mark
