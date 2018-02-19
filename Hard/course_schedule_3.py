@@ -26,7 +26,7 @@ class Solution(object):
         """
         h = []
         start = 0
-        for t, end in sorted(courses, key=lambda(t, end): end):
+        for t, end in sorted(courses, key=lambda t_stamp: t_stamp[1]):
             start += t
             heapq.heappush(h, -t)
             if start > end:
