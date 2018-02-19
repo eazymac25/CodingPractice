@@ -35,6 +35,44 @@ Note:
 (1) According to the definition of tree on Wikipedia: “a tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.”
 
 (2) The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
+
+
+---
+Solutions:
+
+firstTry (Time Limit Exception) :(
+	This involved looping through every node in the graph
+	and running a DFS which kept track of the maximum height
+	for that starting node
+
+	Once all DFS's had run, min heights were collected from
+	the root node to max height
+
+	Obviously, this is a brute force approach and runs in O(N^2) time
+
+Accepted Solution:
+	The accepted solution involves a similar approach to a topological sort via BFS
+
+	The solution involves a few key insights about a minimum height tree in a graph
+
+	1) A leaf is a vertex that has only 1 connection
+	2) A minimum height tree will be rooted at the midpoint of the longest path
+		A good example of this point:
+			Imagine a table cloth or any 2 dimensional sheet (doily for those interior designers)
+			If you were to pick this cloth up from one point so that the cloth doesn't hit the floor, 
+			(as to minimize the drooping height) where would you pick up the cloth?
+			Well, I can tell you that you would avoid picking it up from the ends (leaves)
+			You would immediately look to grab from a center point. So the question isn't where is the root 
+			of the minimum height tree, but where is the midpoint. 
+	3) The midpoint can either be 1 or 2 nodes, never more
+		(since this is a discrete structure rather than continuous like a cloth you can have more than one midpoint)
+
+	To find the midpoint, collect all of the leaves (aka vertices with degree of one)
+	Then BFS inward and generate the next round of leaves, working towards the center
+	until the number of nodes left is less than or equal to 2
+
+	Imagine that cloth again... just keep drawing circles of decreasing diameter until
+	you reach a point... okay that's a Zeno's paradox for continuous structures, but you get the point ;)
 """
 
 class Solution(object):
