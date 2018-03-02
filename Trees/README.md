@@ -7,3 +7,4 @@
 - [lowest_common_ancestor.py](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
 - connect_adj.py (This is from a previous interview)
 - combo.py (This is a simple algo for returning all combinations instead of permutations)
+- [linked_list_to_bst.py](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/)
